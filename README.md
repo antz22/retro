@@ -1,7 +1,7 @@
 <br />
 
 <p align="middle">
-    <img src="https://github.com/antz22/rello/blob/master/screenshots/landing.png" width="100%" style="margin:0; padding: 0">
+    <img src="https://github.com/antz22/retro/blob/master/screenshots/landing.png" width="100%" style="margin:0; padding: 0">
 </p>
 
 <br />
@@ -18,7 +18,7 @@ Our inspiration for this project was twofold. First, we found that, during our e
 Retro is a multi-faceted app that extends to both users and observers. Users register to create a unique profile of their medical history and information, such as age, sex, height, weight, and more. Then, throughout their lifetime, users can add information to the app, including information on conditions, treatments, and blood tests. In a beautiful dashboard on the web app, users can see insights on their medical history and information. More importantly, however, the app generates unique qr codes for every user that, in the case of an emergency, can be scanned by first responders to gain more insights on how best to treat the patient. Both users and doctors can also upload important PDF files to keep track of past X-Ray scans, patient files, and more, in one place.
 
 <p align="middle">
-    <img src="https://github.com/antz22/rello/blob/master/screenshots/dashboard.png" width="100%" style="margin:0; padding: 0">
+    <img src="https://github.com/antz22/retro/blob/master/screenshots/dashboard.png" width="100%" style="margin:0; padding: 0">
 </p>
 
 # How we built it
@@ -37,7 +37,7 @@ We learned a lot about how to integrate a service such as Firebase with a Python
 In the future, we plan to expand Retro to be a product used across ALL hospitals, and to add a system of doctor credential validation for entering more rigorous and detailed patient information. In this way, Retro could truly revolutionize the current system of withholding medical records from patients and usher in a new era of transparency between patients and care providers.
 
 <p align="middle">
-    <img src="https://github.com/antz22/rello/blob/master/screenshots/qrcode.png" width="100%" style="margin:0; padding: 0">
+    <img src="https://github.com/antz22/retro/blob/master/screenshots/qrcode.png" width="100%" style="margin:0; padding: 0">
 </p>
 
 # Built With
