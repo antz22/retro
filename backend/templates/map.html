@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Map</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<script src='https://unpkg.com/@turf/turf/turf.min.js'></script>
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
+<style>
+body { margin: 0; padding: 0; }
+#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+
+label{
+  position: relative;
+  left : 45%;
+  margin-top: 13% !important;
+  height: 225px;
+  width: 225px;
+  display: inline-block;
+  border: 7px solid rgba(255,255,255,0.2);
+  border-radius: 50%;
+  border-left-color: #5cb85c;
+  animation: rotate 1.2s linear infinite;
+}
+@keyframes rotate {
+  50%{
+    border-left-color: #9b59b6;
+  }
+  75%{
+    border-left-color: #e67e22;
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+label .check-icon{
+  display: none;
+}
+label .check-icon:after{
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 80px;
+  transform: scaleX(-1) rotate(135deg);
+  height: 56px;
+  width: 28px;
+  border-top: 6px solid #5cb85c;
+  border-right: 6px solid #5cb85c;
+  transform-origin: left top;
+  animation: check-icon 0.8s ease;
+}
+@keyframes check-icon {
+  0%{
+    height: 0;
+    width: 0;
+    opacity: 1;
+  }
+  20%{
+    height: 0;
+    width: 28px;
+    opacity: 1;
+  }
+  40%{
+    height: 56px;
+    width: 28px;
+    opacity: 1;
+  }
+  100%{
+    height: 56px;
+    width: 28px;
+    opacity: 1;
+  }
+}
+input{
+  display: none; 
+  left : 45%;
+  margin-top: 13% !important;
+}
+input:checked ~ label .check-icon{
+  display: block;
+}
+input:checked ~ label{
+  animation: none;
+  border-color: #5cb85c;
+  transition: border 0.5s ease-out;
+}
+</style>
+</head>
+<body>
+<!-- Load the `mapbox-gl-geocoder` plugin. -->
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
+
+<div id="map"></div>
+    <input type="checkbox" id="check">
+      <label for="check">
+         <div class="check-icon"></div>
+      </label>
+
+<script>
+	mapboxgl.accessToken = 'pk.eyJ1IjoiYWFvciIsImEiOiJjbDB5ZDE3emowZ2FyM2lvM3YxeHMwdHRuIn0.Bjea2DsWNIpg6KlNxW6HRg';
+    const map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [-74.653884, 40.388467],
+        zoom: 15
+    });
+    new mapboxgl.Marker().setLngLat([-74.653884, 40.388467]).addTo(map);
+
+    // Add the control to the map.
+    map.addControl(
+        new MapboxGeocoder({
+            accessToken: mapboxgl.accessToken,
+            mapboxgl: mapboxgl
+        })
+    );
+</script>
+<script>
+    const Http = new XMLHttpRequest();
+    const url='https://api.mapbox.com/geocoding/v5/mapbox.places/hospital.json?proximity=-74.705724,40.417566&access_token=pk.eyJ1IjoiYWFvciIsImEiOiJjbDB5ZDE3emowZ2FyM2lvM3YxeHMwdHRuIn0.Bjea2DsWNIpg6KlNxW6HRg';
+    Http.open("GET", url);
+    Http.send();
+    Http.onreadystatechange = (e) => {
+        var result = [];
+        var keys = Object.keys(Http.responseText);
+        keys.forEach(function(key){
+        result.push(Http.responseText[key]);
+    });
+    var tao1 = ""
+    var tao2 = ""
+    for(let i = 517; i <= 525; i++){
+        tao1+=result[i];
+    }
+    for(let j = 528; j <= 536; j++){
+        tao2+=result[j];
+    }
+      var to = [tao2, tao1] //lng, lat
+      var from = [40.388467, -74.653884] //lng, lat 
+
+
+      var options = {
+        units: 'miles'
+      }; // units can be degrees, radians, miles, or kilometers, just be sure to change the units in the text box to match. 
+
+      var distance = turf.distance(to, from, options);
+      console.log(distance.toFixed([2]) + " miles");
+      
+      setTimeout(function() {
+        if(distance < 1){
+        document.getElementById("check").checked = true;
+        setTimeout(function() {
+            window.location.replace("/");
+}, 1000);
+    }
+}, 3000);
+    }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  <ul>
+    <li><a class="nav-link" style="padding-bottom: 39%;" href="/">Home</a></li>
+    <li><a class="nav-link" href="/map">Map</a></li>
+    <li><a class="nav-link" href="/personal-portal">Medical Portal</a></li>
+    <li><a class="nav-link" href="/signup">Sign Up</a></li>
+    <li><a class="nav-link" href="/login">Log In</a></li>
+  </ul>
+{% endblock %}
+
+{% block content %}
+  <section id="view-file" class="padd-section text-center">
+
+    <br>
+    <br>
+    <br>
+    <div class="container mt-5">
+      <div class="section-title text-center">
+        <h2>View Files</h2>
+      </div>
+
+      <h1>Your QR Code</h1>
+
+      <div class="col-lg-5 mx-auto">
+        <img id="picture" src="data:image/jpeg;base64,{{ img_data }}" width="100%">
+      </div>
+
+      <br><br>
+      <br><br>
+
+
+      <h1>Your PDF Files</h1>
+      <br>
+
+      {% for url in urls %}
+        <embed
+            src="{{ url }}"
+            type="application/pdf"
+            frameBorder="0"
+            scrolling="auto"
+            height="1000em"
+            width="1000em"
+        ></embed>
+        <br>
+        <br>
+      {% endfor %}
+
+    </div>
+
+  </section>
+{% endblock %}

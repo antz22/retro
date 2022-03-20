@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  <ul>
+    <li><a class="nav-link" style="padding-bottom: 39%;" href="/">Home</a></li>
+    <li><a class="nav-link" href="/map">Map</a></li>
+    <li><a class="nav-link" href="/personal-portal">Medical Portal</a></li>
+    <li><a class="nav-link scrollto active" href="/signup">Sign Up</a></li>
+    <li><a class="nav-link" href="/login">Log In</a></li>
+  </ul>
+{% endblock %}
+
+{% block content %}
+
+  <section id="signup" class="padd-section text-center">
+
+    <div class="container mt-5">
+      <div class="section-title text-center">
+        <h2>Sign Up</h2>
+      </div>
+
+      <form method="POST" action="/signup">
+        <div class="form-group col-lg-5 mx-auto">
+          <strong>Email Address</strong>
+          <input type="email" class="form-control mt-1" aria-describedby="emailHelp" placeholder="Enter email" name="email">
+        </div>
+        <br>
+        <div class="form-group col-lg-5 mx-auto">
+          <strong>Password</strong>
+          <input type="password" class="form-control mt-1" placeholder="Enter Password" name="password">
+        </div>
+        <br>
+        <div class="form-group col-lg-5 mx-auto">
+          <strong>Name</strong>
+          <input type="text" class="form-control mt-1" placeholder="Enter Name" name="name">
+        </div>
+        <br>
+        <div class="form-group col-lg-5 mx-auto">
+          <strong>Sex</strong>
+          <input type="text" class="form-control mt-1" placeholder="Enter Sex" name="sex">
+        </div>
+        <br>
+        <div class="form-group col-lg-2 mx-auto">
+          <strong>Date of Birth</strong>
+          <input type="date" class="form-control mt-1" name="date_of_birth">
+        </div>
+        <br>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+    </div>
+
+  </section>
+
+  <script>
+    // Data Picker Initialization
+    $('.datepicker').datepicker({
+      inline: true
+    });
+  </script>
+
+{% endblock %}

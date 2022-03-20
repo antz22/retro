@@ -1,0 +1,106 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+  <ul>
+    <li><a class="nav-link" style="padding-bottom: 39%;" href="/">Home</a></li>
+    <li><a class="nav-link" href="/map">Map</a></li>
+    <li><a class="nav-link" href="/personal-portal">Medical Portal</a></li>
+    <li><a class="nav-link" href="/signup">Sign Up</a></li>
+    <li><a class="nav-link" href="/login">Log In</a></li>
+  </ul>
+{% endblock %}
+
+{% block content %}
+
+<section id="signup" class="padd-section text-center">
+
+    <div class="container mt-5">
+      <div class="section-title text-center">
+        <h2>Change Information</h2>
+      </div>
+
+      <form method="POST" action="/add-entry">
+        <div class="form-group col-lg-5 mx-auto">
+          <strong>Height</strong>
+          <input type="text" class="form-control mt-1" placeholder="Enter height" name="height">
+        </div>
+        <br>
+        <div class="form-group col-lg-5 mx-auto">
+          <strong>Weight</strong>
+          <input type="text" class="form-control mt-1" placeholder="Enter weight" name="weight">
+        </div>
+        <br>
+        <div class="form-group col-lg-5 mx-auto">
+          <strong>Blood Type</strong>
+          <input type="text" class="form-control mt-1" placeholder="Enter blood type" name="blood_type">
+        </div>
+        <br>
+        <div class="form-group col-lg-5 mx-auto">
+          <strong>Blood Tests</strong>
+          <input type="text" class="form-control mt-1" placeholder="Enter blood tests" name="blood_tests">
+        </div>
+        <br>
+        <div class="form-group col-lg-5 mx-auto">
+          <strong>Emergency Email</strong>
+          <input type="email" class="form-control mt-1" placeholder="Enter emergency email" name="emergency_email">
+        </div>
+        <br>
+        <div class="form-group col-lg-5 mx-auto">
+          <strong>Emergency Phone</strong>
+          <input type="text" class="form-control mt-1" placeholder="Enter emergency phone number" name="emergency_phone">
+        </div>
+        <br>
+        <!-- <div class="form-group col-lg-5 mx-auto">
+          <strong>Add a Past Condition</strong>
+          <input type="text" class="form-control mt-1" placeholder="Enter a recent condition" name="past_condition">
+        </div>
+        <br>
+        <div class="form-group col-lg-5 mx-auto">
+          <strong>Treatment Hospital</strong>
+          <input type="text" class="form-control mt-1" placeholder="Hospital recently treated at" name="treatment_hospital">
+        </div>
+        <br>
+        <div class="form-group col-lg-5 mx-auto">
+          <strong>Treatment Type</strong>
+          <input type="text" class="form-control mt-1" placeholder="Type of Emergency recently treated for" name="treatment_type">
+        </div>
+        <br> -->
+
+
+        <!-- <div class="form-group col-lg-5 mx-auto">
+          <strong>Password</strong>
+          <input type="password" class="form-control mt-1" placeholder="Enter Password" name="password">
+        </div>
+        <br>
+        <div class="form-group col-lg-5 mx-auto">
+          <strong>Name</strong>
+          <input type="text" class="form-control mt-1" placeholder="Enter Name" name="name">
+        </div>
+        <br>
+        <div class="form-group col-lg-5 mx-auto">
+          <strong>Sex</strong>
+          <input type="text" class="form-control mt-1" placeholder="Enter Sex" name="sex">
+        </div>
+        <br>
+        <div class="form-group col-lg-2 mx-auto">
+          <strong>Date of Birth</strong>
+          <input type="date" class="form-control mt-1" name="date_of_birth">
+        </div>
+        <br> -->
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+    </div>
+
+  </section>
+
+  <script>
+    // Data Picker Initialization
+    $('.datepicker').datepicker({
+      inline: true
+    });
+  </script>
+
+
+{% endblock %}

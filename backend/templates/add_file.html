@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+  <ul>
+    <li><a class="nav-link" style="padding-bottom: 39%;" href="/">Home</a></li>
+    <li><a class="nav-link" href="/map">Map</a></li>
+    <li><a class="nav-link" href="/personal-portal">Medical Portal</a></li>
+    <li><a class="nav-link" href="/signup">Sign Up</a></li>
+    <li><a class="nav-link" href="/login">Log In</a></li>
+  </ul>
+{% endblock %}
+
+{% block content %}
+  <section id="add-file" class="padd-section text-center">
+
+    <div class="container mt-5">
+      <div class="section-title text-center">
+        <h2>Upload a File</h2>
+      </div>
+
+      <form method="POST" action="/add-file" enctype="multipart/form-data">
+        <div class="mb-3 form-groug mx-auto col-lg-6">
+          <strong for="formFile">Upload PDFs of medical records, including X-Ray scans, doctor's visits, and doctor's notes.</strong>
+          <br>
+          <br>
+          <input class="form-control" type="file" id="formFile" name="file">
+        </div>
+        <br>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+    </div>
+
+  </section>
+{% endblock %}

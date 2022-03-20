@@ -1,0 +1,78 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+  <ul>
+    <li><a class="nav-link scrollto active" style="padding-bottom: 39%;" href="/">Home</a></li>
+    <li><a class="nav-link" href="/map">Map</a></li>
+    <li><a class="nav-link" href="/personal-portal">Medical Portal</a></li>
+    <li><a class="nav-link" href="/signup">Sign Up</a></li>
+    <li><a class="nav-link" href="/login">Log In</a></li>
+  </ul>
+{% endblock %}
+
+{% block content %}
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container" data-aos="fade-in">
+      <h1>Welcome to Retro</h1>
+      <!-- <h2>Some Slogan .............</h2> -->
+      <img src="static/img/hero-img.png" alt="Hero Imgs" data-aos="zoom-out" data-aos-delay="100">
+      <a href="/personal-portal" class="btn-get-started scrollto">Get Started</a>
+    </div>
+  </section><!-- End Hero Section -->
+
+  <main id="main">
+
+    <!-- ======= Get Started Section ======= -->
+    <section id="get-started" class="padd-section text-center">
+
+      <div class="container" data-aos="fade-up">
+        <div class="section-title text-center">
+
+          <h2>What is Retro?</h2>
+          <p style="font-size: 1.15em; margin-left: 3em; margin-right: 3em;">
+            Retro enables patients’ pertinent medical histories and information to be accessed, on-demand, through scanning a QR code — this information can potentially save lives in emergency situations while also increasing medical data's accessibility.
+          </p>
+        </div>
+      </div>
+    </section>
+    <!-- ======= Features Section ======= -->
+    <section id="features" class="padd-section text-center">
+
+      <div class="container" data-aos="fade-up">
+        <div class="section-title text-center">
+          <h2>Our Features.</h2>
+          <!-- <p class="separator">Integer cursus bibendum augue ac cursus .</p> -->
+        </div>
+
+        <div class="row" data-aos="fade-up" data-aos-delay="100">
+
+          <div class="col-md-6 col-lg-4">
+            <div class="feature-block">
+              <img src="static/img/code4.png" style="width:100px;height:100px;" alt="img">
+              <h4>Easy Access</h4>
+              <p>Medical information stored in Retro can be accessed by quickly scanning a QR code, a feature built into almost all modern smartphones.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="feature-block">
+              <img src="static/img/bulb.png" style="width:100px;height:100px;" alt="img">
+              <h4>Medical Insights</h4>
+              <p>Retro organizes information into a clean and intuitive format that is useful for not only emergency response situations but also for general health insights.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="feature-block">
+              <img src="static/img/blobe.png" style="width:100px;height:100px;" alt="img">
+              <h4>Data Availability</h4>
+              <p>Users have full access to their data at all times, regardless of the specific medical professionals or doctors that they regularly visit.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+{% endblock %}
